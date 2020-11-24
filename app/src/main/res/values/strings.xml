@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Demo</string>
+    <string name="title_weather">Погода</string>
+    <string name="title_map">Карта</string>
+    <string name="title_setting">Настройки</string>
+    <string name="button_setting_off">Сохранить</string>
+    <string name="button_Login_on">Войти</string>
+    <string name="button_weather_city">Посмотреть погоду</string>
+    <string name="button_login_off">Войти</string>
+    <string name="text_login_name">Логин</string>
+    <string name="text_city_name">Город</string>
+    <string name="text_password_name">Пароль</string>
+    <string name="text_weather_city">пока не знаю</string>
+    <string name="text_repid_password">Повтор пароля</string>
+    <string name="text_weather_home">ищу место</string>
+    <string name="google_maps_key"></string>
+    <string name="weather_key">57a406e15b942704028b2286caed4d56</string>
+
+</resources>
