@@ -105,9 +105,10 @@ class MapProvider {
                 val mPlace = LatLng(mLocation!!.latitude, mLocation!!.longitude)
                 val latLngBuilder = LatLngBounds.Builder()
                 for (pwt in mPlacesWishTitle) {
-                    var dd = TakeDistDur(mPlace, pwt.place)
+                    var dd = TakeDistDur( pwt.place , mPlace)
                     pwt.duration = dd.duration
                     pwt.distans = dd.distans
+                    pwt.title =dd.adress
                 }
                 for (j in mPlacesWishTitle) {
                     latLngBuilder.include(com.google.android.gms.maps.model.LatLng(j.place.lat, j.place.lng))
@@ -150,6 +151,7 @@ class MapProvider {
 
         var durationAll = 0L
         var distanceAll = 0L
+        var adres = ""
         try {
             result = DirectionsApi.newRequest(geoApiContext)
                     .mode(TravelMode.WALKING)
@@ -161,6 +163,7 @@ class MapProvider {
                         + lg.duration.inSeconds)
                 distanceAll = distanceAll + lg.distance.inMeters
             }
+            adres = legs[0].startAddress
         } catch (e: ApiException) {
             e.printStackTrace()
         } catch (e: InterruptedException) {
@@ -168,11 +171,11 @@ class MapProvider {
         } catch (e: IOException) {
             e.printStackTrace()
         }
-        return DistDur(distanceAll, durationAll)
+        return DistDur(distanceAll, durationAll , adres)
     }
 
 
-    class DistDur(var distans:Long , var duration: Long )
+    class DistDur(var distans:Long , var duration: Long  , var adress:String )
 
     class LatLngWishTitle(var place: LatLng ,var title: String){
         var distans:Long?  = null
